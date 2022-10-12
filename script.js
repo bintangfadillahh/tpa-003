@@ -10,7 +10,7 @@ let getMoviesData = async () => {
   movies.results.forEach((item) => {
     let card = `
         <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <div class="card mb-5" style="height: 36rem;">
+            <div class="card mb-5">
                 <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" >
                 <div class="card-body" style="font-size: 14px">
                     <div class="row">
