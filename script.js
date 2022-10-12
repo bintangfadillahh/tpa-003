@@ -38,14 +38,16 @@ let getMoviesData = async () => {
 let getSearchData = async () => {
   let params = new URL(document.location).searchParams;
   let keyword = params.get("search");
-  console.log(keyword);
-
+  let setAtt = document.getElementById("setAtt");
   let responseSearch = await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=18b7970837f25831fb2aae06149177c7&query=${keyword}&sort_by=popularity.desc&page=1`
   );
+
   let moviesSearch = await responseSearch.json();
 
-  console.log(moviesSearch);
+  if (keyword != null) {
+    setAtt.setAttribute("value", `${keyword}`);
+  }
   moviesSearch.results.forEach((item) => {
     let card = `
         <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
